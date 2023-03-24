@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6 image-section">
+                <div class="hero-image" id="heroImage">
+                    <img src="images/banner-image.png" alt="banner-image" style="max-width: 100%; margin-left: 2%;">
+                </div>
+                <div class="bulls" id="bullsAndCows">
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">Bulls and Cows</h1>
+                <p class="lead">Its a fun guessing game where you have to decide the lenth of the number that you want to guess and then you have to start guessing. And you will get prompts to improve you guess like the following : 
+                    <ul class="lead">
+                        <li>
+                            The number of <b>"bulls"</b>, which are digits in the guess that are in the correct position.
+                        </li>
+                        <li>
+                            The number of <b>"cows"</b>, which are digits in the guess that are in your secret number but are located in the wrong position. Specifically, the non-blil digits in the guess that colid be rearranged such that they become blils.
+                        </li>
+                    </ul>
+                </p>
+                <div class="length-selection">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input radio-button-for-length" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="3" checked>
+                        <label class="form-check-label" for="inlineRadio1">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input radio-button-for-length" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
+                        <label class="form-check-label" for="inlineRadio2">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input radio-button-for-length" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="5">
+                        <label class="form-check-label" for="inlineRadio3">5</label>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary btn-sm" id='getLength'>Submit</button>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start guessSection" id="guessSection">
+                    <input type="number" name="guess" id="guess">
+                    <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" id='prediction Button'>Check</button>
+                </div>
+                <p id="result"></p>
+            </div>
+        </div>
+    </div>
+    <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+</body>
+</html>

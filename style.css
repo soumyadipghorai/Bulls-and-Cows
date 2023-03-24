@@ -1,0 +1,14 @@
+.image-section{
+    display: flex; 
+}
+.length-selection{
+    padding: 2%;
+    margin: 2%;
+}
+.dancing-bull, .dancing-cow{
+    max-width: 200%;
+}
+
+.guessSection{
+    display: none;
+}
