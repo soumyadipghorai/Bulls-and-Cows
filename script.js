@@ -12,13 +12,16 @@ function getLengthFunction(){
         if(ele[i].checked){
             console.log(ele[i].value);
             playSectionFlag = true;
+            document.getElementById("guessSection").style.display = "block";
+            document.getElementById("lengthSection").style.display = "none";
+            // console.log(playSectionFlag);
             return ele[i].value;
         }        
     }
 }
-
-if (playSectionFlag){
-    document.getElementById("guessSection").style.display = "contents";
+console.log(playSectionFlag);
+if (playSectionFlag === false){
+    document.getElementById("guessSection").style.display = "none";
     lengthSectionFlag = false; 
 }
 
@@ -74,15 +77,6 @@ function createCowBull(secret, guess){
         }
     }
 
-    // console.log(secretLetterCount, commonCount, guessLetterCount);
-    // if (bullCount <= 1)
-    //     var bullChar = "bull";
-    // else 
-    //     var bullChar = "bulls";
-    // if (cowCount <= 1)
-    //     var cowChar = "cow";
-    // else 
-    //     var cowChar = "cows";
     return bullCount +" "+ cowCount;
 
 }
