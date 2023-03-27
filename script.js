@@ -5,6 +5,7 @@ getLengthButton.addEventListener('click', getLengthFunction);
 
 var playSectionFlag = false;
 var lengthSectionFlag = true;
+
 function getLengthFunction(){
     var ele = document.getElementsByClassName('radio-button-for-length');
 
@@ -89,6 +90,8 @@ function generateRandomNumber(length){
 var counter = 0;
 var secret = "";
 var flag = true;
+var timerStarted = new Date().getTime();
+
 function check(){ 
     if (flag){
         var length = Number(getLengthFunction());
@@ -103,13 +106,24 @@ function check(){
     console.log(createCowBull(secret, guessedNumber));
     document.getElementById("heroImage").innerHTML = "";
     if (secret == guessedNumber){
-        document.getElementById("heroImage").innerHTML = '<img src="images/congrats.png" alt="dancing-bull" class="dancing-bull" id="bullImage" style="max-width: 100%; margin-left: 2%;">';
+        document.getElementById("heroImage").innerHTML = 
+            '<img src="images/congrats.png" alt="dancing-bull" class="dancing-bull" id="bullImage" style="max-width: 100%; margin-left: 2%;">';
         document.getElementById('bullsAndCows').innerHTML = "";
         secret = "";
+        counter++; 
+        var timerStopped = new Date().getTime();
+        var timeTaken = timerStopped - timerStarted;
+        var hours = Math.floor((timeTaken % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeTaken % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeTaken % (1000 * 60)) / 1000);
+        var totalTimeInSec = hours*3600 + minutes*60 + seconds;
+        document.getElementById("result").innerHTML = counter+" tries taken & "+ totalTimeInSec + " secs takes";
         counter = 0;
+        timerStarted = new Date().getTime();
         flag = true;
     }
     else{
+         
         if (Number(secret) > Number(guessedNumber)){
             console.log("large");
         }
@@ -119,8 +133,11 @@ function check(){
         document.getElementById('guess').value = "";
         var bullCount = createCowBull(secret, guessedNumber)[0];
         var cowCount = createCowBull(secret, guessedNumber)[createCowBull(secret, guessedNumber).length - 1];
-        document.getElementById('bullsAndCows').innerHTML = '<img src="images/cowBulls/'+cowCount+'-cow-'+bullCount+'-bulls.gif" alt="dancing-bull" class="dancing-bull" id="bullImage" style="max-width: 100%; margin-left: 2%;">'
+        document.getElementById('bullsAndCows').innerHTML = 
+            '<img src="images/cowBulls/'+cowCount+'-cow-'+bullCount+
+            '-bulls.gif" alt="dancing-bull" class="dancing-bull" id="bullImage" style="max-width: 100%; margin-left: 2%;">'
+        counter++;
     }
-    counter++; 
     console.log(counter);
+    console.log(new Date().getTime());
 }
