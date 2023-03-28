@@ -15,7 +15,7 @@ function getLengthFunction(){
             playSectionFlag = true;
             document.getElementById("guessSection").style.display = "block";
             document.getElementById("lengthSection").style.display = "none";
-            // console.log(playSectionFlag);
+            document.getElementById("playAgainDiv").style.display = "none";
             return ele[i].value;
         }        
     }
@@ -111,12 +111,16 @@ function check(){
         document.getElementById('bullsAndCows').innerHTML = "";
         secret = "";
         counter++; 
+        
         var timerStopped = new Date().getTime();
         var timeTaken = timerStopped - timerStarted;
         var hours = Math.floor((timeTaken % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((timeTaken % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((timeTaken % (1000 * 60)) / 1000);
         var totalTimeInSec = hours*3600 + minutes*60 + seconds;
+        
+        document.getElementById("guessSection").style.display = "none";
+        document.getElementById("playAgainDiv").style.display = 'block';
         document.getElementById("result").innerHTML = counter+" tries taken & "+ totalTimeInSec + " secs takes";
         counter = 0;
         timerStarted = new Date().getTime();
